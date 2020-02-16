@@ -1,7 +1,10 @@
 package com.maryana.starsdeck.controller;
 
+import com.maryana.starsdeck.dto.EventDTO;
 import com.maryana.starsdeck.dto.UserDTO;
+import com.maryana.starsdeck.model.Event;
 import com.maryana.starsdeck.model.User;
+import com.maryana.starsdeck.service.EventService;
 import com.maryana.starsdeck.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +21,8 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final UserService service;
+
+    private final EventService eventService;
 
     @GetMapping
     public ResponseEntity<List<UserDTO>> findAll() {
@@ -56,13 +61,18 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<Void> update(@RequestBody UserDTO userDTO, @PathVariable String id) {
+    @PostMapping("/{id}/events")
+    public ResponseEntity<Void> insertEvent(@RequestBody EventDTO eventDTO, @PathVariable String id) {
 
-        User user = service.fromDTO(userDTO);
-        user.setId(id);
-        service.update(user);
+        Event event = eventService.fromDTO(eventDTO);
 
-        return ResponseEntity.noContent().build();
+        User user = service.findById(id);
+
+        service.update(user, event);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(event.getId()).toUri();
+
+        return ResponseEntity.created(uri).build();
     }
 }

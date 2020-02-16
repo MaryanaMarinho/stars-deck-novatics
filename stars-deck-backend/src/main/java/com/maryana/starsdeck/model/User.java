@@ -7,6 +7,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,12 +25,14 @@ public class User implements Serializable {
     private String bio;
     private String avatarUrl;
     private Integer points;
+    private List<Event> events = new ArrayList<>();
 
-    public User(String name, String userName, String bio, String avatarUrl, Integer points) {
+    public User(String name, String userName, String bio, String avatarUrl, Integer points, List<Event> events) {
         this.name = name;
         this.userName = userName;
         this.bio = bio;
         this.avatarUrl = avatarUrl;
         this.points = points;
+        this.events = events;
     }
 }
