@@ -1,0 +1,120 @@
+.container {
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    padding: 60px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.container {
+    /*margin-left: 30px;*/
+    margin-left: 15%;
+    margin-right: 15%;
+
+}
+
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+
+}
+
+.container {
+    flex: 1;
+}
+
+.container ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    list-style: decimal;
+}
+
+li.dev-item {
+    background: #FFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
+    padding: 20px;
+}
+
+li.dev-item header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+li.dev-item header img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+}
+
+.user-info {
+    flex: auto;
+}
+
+li.dev-item header .user-info {
+    margin-left: 10px;
+}
+
+.user-info strong {
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+.user-points span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #999;
+    margin-top: 2px;
+    width: 54px;
+    height: 54px;
+}
+
+li.dev-item p {
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0;
+}
+
+li.dev-item a {
+    color: #7448ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+li.dev-item a:hover {
+    color: #5a2ea6;
+}
+
+div .register {
+    display: flex;
+    justify-content: flex-end;
+}
+
+div .register-button {
+    border: 0;
+    margin-top: 30px;
+    margin-right: 30px;
+    background-color: #7448ff;
+    border-radius: 2px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.5s;
+    text-decoration: none;
+}
+
+div .register-button:hover {
+    background-color: #523aff;
+}
