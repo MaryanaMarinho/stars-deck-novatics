@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+/*@import "assets/fonts/Gilroy/Web_Fonts/gilroy_extrabold_macroman/stylesheet.css";*/
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: #e8e8e9;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, button {
+  font-family: Montserrat, sans-serif;
+}
+
+/*header, title {*/
+/*  font-family: Gilroy, sans-serif;*/
+/*}*/
