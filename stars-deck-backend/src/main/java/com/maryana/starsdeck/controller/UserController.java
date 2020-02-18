@@ -15,6 +15,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/users")
@@ -43,14 +44,14 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> insert(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> insert(@RequestBody UserDTO userDTO) {
 
         User user = service.insert(userDTO.getUserName());
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(user.getId()).toUri();
 
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body((new UserDTO(user)));
     }
 
     @DeleteMapping(value = "/{id}")

@@ -25,7 +25,7 @@ public class UserService {
     private final GithubClient githubClient;
 
     public List<User> findAll() {
-        return repository.findAll();
+        return repository.findAllByOrderByPointsDesc();
     }
 
     public User findById(String id) {
